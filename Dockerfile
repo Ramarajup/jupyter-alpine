@@ -8,6 +8,8 @@ RUN apk update \
     ca-certificates \
     libstdc++ \
     python3 \
+    freetype \
+    libpng \
 && apk add --virtual=build_dependencies \
     cmake \
     gcc \
