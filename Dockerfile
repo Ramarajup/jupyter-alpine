@@ -19,6 +19,8 @@ RUN apk update \
     python3-dev \
     freetype-dev \
     libpng-dev \
+    libxml2-dev \
+    libxslt-dev \
 && ln -s /usr/include/locale.h /usr/include/xlocale.h \
 && python3 -m pip --no-cache-dir install \
     cufflinks \
@@ -31,7 +33,10 @@ RUN apk update \
     requests \
     matplotlib \
     sympy \
+    jupyter_contrib_nbextensions \
+    jupyter_nbextensions_configurator \
 && jupyter nbextension enable --py widgetsnbextension \
+&& jupyter nbextensions_configurator enable --user \
 && apk del --purge -r build_dependencies \
 && rm -rf /var/cache/apk/* \
 && mkdir /notebooks
