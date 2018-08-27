@@ -37,6 +37,7 @@ RUN apk update \
     jupyter_nbextensions_configurator \
 && jupyter nbextension enable --py widgetsnbextension \
 && jupyter nbextensions_configurator enable --user \
+&& jupyter contrib nbextension install --user \
 && apk del --purge -r build_dependencies \
 && rm -rf /var/cache/apk/* \
 && mkdir /notebooks
